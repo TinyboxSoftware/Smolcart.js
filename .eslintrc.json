@@ -1,0 +1,22 @@
+{
+  "root": true,
+  "parserOptions": {
+    "ecmaVersion": 2019,
+    "sourceType": "module"
+  },
+  "ignorePatterns": ["/node_modules/*", "webpack.config.js"],
+  "rules": {
+    "strict": ["error", "never"],
+    "camelcase": "error",
+    "no-unexpected-multiline": "error",
+    "no-unsafe-negation": "error",
+    "no-undef": "error",
+    "no-unused-vars": "warn"
+  },
+  "env": {
+    "browser": false,
+    "node": true,
+    "es6": true
+  },
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"]
+}
