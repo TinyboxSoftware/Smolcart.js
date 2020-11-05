@@ -4,9 +4,10 @@
   "description": "a teeny tiny wrapper for Shopify's Ajax API",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --watch",
+    "start": "webpack --watch",
     "build": "webpack",
-    "test": "jest"
+    "test": "jest --coverage",
+    "test:watch": "jest --coverage --watchAll"
   },
   "repository": {
     "type": "git",
