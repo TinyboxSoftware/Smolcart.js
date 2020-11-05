@@ -4,18 +4,18 @@
     "ecmaVersion": 2019,
     "sourceType": "module"
   },
-  "ignorePatterns": ["/node_modules/*", "webpack.config.js"],
+  "ignorePatterns": ["/node_modules/*", "webpack.config.js", "jest.config.js"],
   "rules": {
     "strict": ["error", "never"],
     "camelcase": "error",
     "no-unexpected-multiline": "error",
     "no-unsafe-negation": "error",
     "no-undef": "error",
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "no-async-promise-executor": "warn"
   },
   "env": {
-    "browser": false,
-    "node": true,
+    "browser": true,
     "es6": true
   },
   "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"]
