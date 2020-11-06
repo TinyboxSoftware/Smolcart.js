@@ -10,3 +10,10 @@ export interface NewItem {
   quantity?: number;
   properties?: Record<string, string>;
 }
+
+export enum ActionType {
+  Add = 'ADD',
+  Modify = 'MODIFY',
+  GetCart = 'GET_CART',
+  ClearCart = 'CLEAR_CART',
+}
