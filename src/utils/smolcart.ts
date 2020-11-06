@@ -1,5 +1,6 @@
 /* eslint-disable no-async-promise-executor */
 import { newItem } from '../types/index';
+import { ActionType, NewItem } from '../types/index';
 
 class Smolcart {
   public isInit: boolean;

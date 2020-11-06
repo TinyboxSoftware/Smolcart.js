@@ -5,7 +5,7 @@ declare global {
   }
 }
 
-export interface newItem {
+export interface NewItem {
   id: string;
   quantity?: number;
   properties?: Record<string, string>;

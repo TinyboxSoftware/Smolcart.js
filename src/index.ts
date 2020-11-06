@@ -1,3 +1,3 @@
-import SmolCart from './utils/smolcart';
+import SmolCart from './utils/Smolcart';
 
 window.SmolCart = SmolCart;
