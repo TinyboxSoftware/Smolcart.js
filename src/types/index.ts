@@ -1,5 +1,6 @@
 declare global {
   interface Window {
+    SmolCart: unknown;
     SmolPolyLoaded: unknown;
   }
 }

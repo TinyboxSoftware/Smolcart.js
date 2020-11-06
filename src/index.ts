@@ -1,1 +1,3 @@
-console.log('this is a test');
+import SmolCart from './utils/smolcart';
+
+window.SmolCart = SmolCart;
