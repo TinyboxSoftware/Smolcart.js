@@ -1,88 +1,42 @@
 /* eslint-disable no-async-promise-executor */
-import { newItem } from '../types/index';
 import { ActionType, NewItem } from '../types/index';
+import Action from './Action';
+// import ActionQueue from './ActionQueue';
 
 class Smolcart {
-  public isInit: boolean;
+  // private queue: ActionQueue;
 
   constructor() {
+    // this.queue = new ActionQueue();
     if (!window.fetch || !window.Promise) {
       // polyfill in fetch and other goodies
       window.SmolPolyLoaded = () => {
         console.info('smolcart.js has loaded some polyfills for you ✨');
-        this.isInit = true;
       };
       document.write(
         '<script src="https://polyfill.io/v3/polyfill.min.js?callback=smolPolyLoaded"></script>'
       );
-    } else {
-      this.isInit = true;
     }
   }
 
-  addToCart(items: Array<newItem>): Promise<Response> {
-    return new Promise(async (resolve, reject) => {
-      try {
-        if (!this.isInit)
-          throw new Error(
-            `Smolcart.js hasn't been initialized... please wait.`
-          ); // TODO make a queue to handle waiting requests
-        const res = await fetch(`/cart/add.js`, {
-          method: 'POST',
-          body: JSON.stringify({
-            items: items.map((item) => ({
-              id: item.id,
-              quantity: item.quantity || 1,
-              properties: item.properties ? { ...item.properties } : undefined,
-            })),
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-        if (res.status >= 400 && res.status < 600) {
-          throw new Error(res.toString());
-        } else {
-          return resolve(res);
-        }
-      } catch (e) {
-        return reject(e);
-      }
-    });
+  addItems(items: Array<NewItem>): Promise<Response> {
+    const action = new Action(items, ActionType.Add);
+    return action.execute();
+  }
+
+  modifyItems(item: NewItem): Promise<Response> {
+    const action = new Action([item], ActionType.Modify);
+    return action.execute();
   }
 
   clearCart(): Promise<Response> {
-    // TODO clear cart items
-    return new Promise(async (resolve, reject) => {
-      try {
-        if (!this.isInit)
-          throw new Error(
-            `Smolcart.js hasn't been initialized... please wait.`
-          ); // TODO make a queue to handle waiting requests
-        const data = await fetch(`/cart/clear.js`, { method: 'POST' });
-        const res = await data.json();
-        return resolve(res);
-      } catch (err) {
-        return reject(err);
-      }
-    });
+    const action = new Action(null, ActionType.ClearCart);
+    return action.execute();
   }
 
   getCart(): Promise<Response> {
-    // TODO return a cart object for user reference
-    return new Promise(async (resolve, reject) => {
-      try {
-        if (!this.isInit)
-          throw new Error(
-            `Smolcart.js hasn't been initialized... please wait.`
-          ); // TODO make a queue to handle waiting requests
-        const data = await fetch(`/cart.js`);
-        const res = await data.json();
-        return resolve(res);
-      } catch (err) {
-        return reject(err);
-      }
-    });
+    const action = new Action(null, ActionType.GetCart);
+    return action.execute();
   }
 }
 
