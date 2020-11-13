@@ -3,14 +3,10 @@ const webpack = require('webpack');
 const ForkTSCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
-  mode: 'production',
-  // devtool: 'inline-source-map',
-  entry: {
-    smolcart: './src/index.ts',
-  },
+  entry: './src/index.ts',
   output: {
     libraryTarget: 'umd',
-    filename: '[name].min.js',
+    library: 'smolcart',
     path: path.resolve(__dirname, 'dist/'),
   },
   optimization: {
