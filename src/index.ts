@@ -1,3 +1,7 @@
 import SmolCart from './utils/Smolcart';
 
-window.SmolCart = SmolCart;
+const init = (): SmolCart => {
+  return new SmolCart();
+};
+
+export { init };
