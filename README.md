@@ -1,6 +1,8 @@
 # smolcart.js 🛒
 A teeny tiny ajax cart library for Shopify themes. 
 
+![npm](https://img.shields.io/npm/v/smolcart.js?label=smolcart.js)  ![npm](https://img.shields.io/npm/dm/smolcart.js?label=downloads%2Fmonth)
+
 ## Features
 1. extremely lightweight (~4.2kb - 5.5kb) ⚡
 2. a simple, promise-based API for interfacing with the cart 😀
