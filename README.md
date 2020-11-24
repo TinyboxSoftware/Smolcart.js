@@ -1,21 +1,24 @@
 # smolcart.js 🛒
-A teeny tiny ajax cart library for Shopify themes. 
+A 5.5kb, 0-dependency cart management library for Shopify Themes.
 
-![npm](https://img.shields.io/npm/v/smolcart.js?label=smolcart.js)  ![npm bundle size](https://img.shields.io/bundlephobia/min/smolcart.js)
+![npm](https://img.shields.io/npm/v/smolcart.js?label=smolcart.js)  ![npm bundle size](https://img.shields.io/bundlephobia/min/smolcart.js)  
 
 ## Features
-1. extremely lightweight (~4.2kb - 5.5kb) ⚡
+1. extremely lightweight (~5.5kb) ⚡
 2. a simple, promise-based API for interfacing with the cart 😀
-3. an optional queue system for chaining requests (WIP) 🔗
+3. an optional queue system for chaining requests (WIP and will be optional) 🔗
 3. automatic polyfill loading where needed thanks to [pollyfill.io](pollyfill.io) 🔮
 
 ## Getting started
 
-You can use smolcart.js through NPM or as a script tag in your Shopify theme; whichever method better fits your workflow.  
+Smolcart.js can be used with NPM or through a CDN; whichever best fits your workflow.   
 
-### Starting with NPM
+### Install using NPM
 
-1. open your project and run `npm i smolcart.js`
+1. open your project and run
+```bash 
+npm install --save smolcart.js
+```
 2. in the file where you'd like to use smolcart: 
 ```js
 import { init } from 'smolcart.js'
@@ -29,14 +32,14 @@ const cartdata = await cart.getCart();
 ```
 3. you're good to go! more docs coming soon 
 
-### Starting with `<script />` tags
+### Install using a CDN
 
 1. open the template you'd like to add smolcart.js to
-2. create a script tag that has src attribute set to the UMD version of smolcart.js
+2. create a script tag that has `src` attribute pointing to the newest version of smolcart.js on a CDN (we recommend unpkg)
 ```html 
 <script src="https://unpkg.com/smolcart.js@latest/dist/smolcart.umd.min.js" defer></script> 
 ``` 
-3. after the script has loaded, you should be able to initialize smolcart: 
+3. after the script has loaded, you should be able to initialize smolcart.js: 
 ```js
 // initialize smolcart.js, this will load polyfills if they're needed.
 const cart = window.smolcart.init();
@@ -46,7 +49,4 @@ await cart.addItems([{id: '1234', quantity: 1]);
 const cartdata = await cart.getCart();
 ```
 4. you're good to go! more docs coming soon
-
-## Goals
-A functional javascript wrapper for Shopify's cart API that is lightweight, and has no dependencies (besides fetch, and other es6 polyfills)
 
