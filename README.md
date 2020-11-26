@@ -1,7 +1,12 @@
-# smolcart.js 🛒
-A 5.5kb, 0-dependency cart management library for Shopify Themes.
+<h1 align="center">
+  <img src="https://res.cloudinary.com/tinbyox/image/upload/v1606434862/Smolcart.js/sc_logo_lightbg_withtext_kullbm.png" width="164px" alt="smolcart.js logo: a dog in a shopping cart" /><br />
+</h1>
+<p align="center">A 5.5kb, 0-dependency cart management library for Shopify Themes.</p> 
+<p align="center>
+  <img align="center" scr="https://img.shields.io/npm/v/smolcart.js?label=smolcart.js" />
+  <img align="center" src="https://img.shields.io/bundlephobia/min/smolcart.js" />
+</p>
 
-![npm](https://img.shields.io/npm/v/smolcart.js?label=smolcart.js)  ![npm bundle size](https://img.shields.io/bundlephobia/min/smolcart.js)  
 
 ## Features
 1. extremely lightweight (~5.5kb) ⚡
