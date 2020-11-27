@@ -4,10 +4,10 @@
 <p align="center">A 5.5kb, 0-dependency cart management library for Shopify Themes.</p>
 <p align="center">
   <a href="https://www.npmjs.com/package/smolcart.js">
-    <img alt="npm" src="https://img.shields.io/npm/v/smolcart.js?color=%23e3e300&style=for-the-badge" />
+    <img alt="npm" src="https://img.shields.io/npm/v/smolcart.js?color=%23ECD838&style=for-the-badge" />
   </a>
   <a href="https://www.npmjs.com/package/smolcart.js">
-    <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/smolcart.js?color=%23e3e300&style=for-the-badge" />
+    <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/smolcart.js?color=%23ECD838&style=for-the-badge" />
   </a>                                                           
 </p>
 
@@ -21,7 +21,7 @@
 
 ## Getting started
 
-Smolcart.js can be used with NPM or through a CDN; whichever best fits your workflow.   
+smolcart.js can be used with NPM or through a CDN; whichever best fits your workflow.   
 
 ### Install using NPM
 
