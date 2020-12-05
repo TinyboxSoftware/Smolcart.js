@@ -13,7 +13,7 @@
     "build:tsc": "tsc",
     "build:umd": "webpack --output-filename=smolcart.umd.js",
     "build:umd.min": "webpack --mode=production --output-filename=smolcart.umd.min.js",
-    "prepublish": "npm run build"
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
