@@ -1,3 +1,4 @@
+/* eslint-disable no-prototype-builtins */
 /* eslint-disable no-async-promise-executor */
 import { ActionType, NewItem } from '../types/index';
 
@@ -27,10 +28,14 @@ class Action {
     }
   }
 
+  private createAbsoluteURL(relPath: string): string {
+    return `${window.location.protocol}//${window.location.host}${relPath}`;
+  }
+
   public executeAdd(): Promise<Response | null> {
     return new Promise(async (resolve, reject) => {
       try {
-        const res = await fetch(`/cart/add.js`, {
+        const res = await fetch(this.createAbsoluteURL('/cart/add.js'), {
           method: 'POST',
           body: JSON.stringify({
             items: this.data.map((item) => ({
@@ -58,11 +63,13 @@ class Action {
     return new Promise(async (resolve, reject) => {
       const itemToModify = this.data[0];
       try {
-        const res = await fetch(`/cart/change.js`, {
+        const res = await fetch(this.createAbsoluteURL(`/cart/change.js`), {
           method: 'POST',
           body: JSON.stringify({
             id: itemToModify.id,
-            quantity: itemToModify?.quantity || 1,
+            quantity: itemToModify.hasOwnProperty('quantity')
+              ? itemToModify.quantity
+              : 0,
             properties: itemToModify?.properties
               ? { ...itemToModify?.properties }
               : undefined,
@@ -85,7 +92,7 @@ class Action {
   public executeGetCart(): Promise<Response | null> {
     return new Promise(async (resolve, reject) => {
       try {
-        const res = await fetch(`/cart.js`);
+        const res = await fetch(this.createAbsoluteURL(`/cart.js`));
         const data = await res.json();
         return resolve(data);
       } catch (err) {
@@ -97,7 +104,9 @@ class Action {
   public executeClearCart(): Promise<Response | null> {
     return new Promise(async (resolve, reject) => {
       try {
-        const res = await fetch(`/cart/clear.js`, { method: 'POST' });
+        const res = await fetch(this.createAbsoluteURL(`/cart/clear.js`), {
+          method: 'POST',
+        });
         const data = await res.json();
         return resolve(data);
       } catch (err) {
