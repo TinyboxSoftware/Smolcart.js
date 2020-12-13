@@ -1,6 +1,6 @@
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable no-async-promise-executor */
-import { ActionType, NewItem } from '../types/index';
+import { ActionType, NewItem } from './types/index';
 
 class Action {
   actionType: ActionType;
