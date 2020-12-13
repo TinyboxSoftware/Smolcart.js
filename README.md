@@ -6,7 +6,7 @@
   <a href="https://www.npmjs.com/package/smolcart.js">
     <img alt="npm" src="https://img.shields.io/npm/v/smolcart.js?color=%23ECD838&style=for-the-badge" />
   </a>
-  <a href="https://www.npmjs.com/package/smolcart.js">
+  <a href="https://bundlephobia.com/result?p=smolcart.js">
     <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/smolcart.js?color=%23ECD838&style=for-the-badge" />
   </a>                                                           
 </p>
