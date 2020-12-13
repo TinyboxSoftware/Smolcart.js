@@ -9,6 +9,7 @@ module.exports = {
     library: 'smolcart',
     path: path.resolve(__dirname, 'dist/'),
   },
+  target: ['web', 'es2017'],
   optimization: {
     splitChunks: {},
   },
