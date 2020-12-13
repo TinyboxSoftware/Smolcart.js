@@ -1,6 +1,6 @@
 /* eslint-disable no-prototype-builtins */
 /* eslint-disable no-async-promise-executor */
-import { ActionType, NewItem } from '../types/index';
+import { ActionType, NewItem } from './types/index';
 
 class Action {
   actionType: ActionType;
@@ -15,16 +15,12 @@ class Action {
     switch (this.actionType) {
       case 'ADD':
         return this.executeAdd();
-        break;
       case 'MODIFY':
         return this.executeModify();
-        break;
       case 'GET_CART':
         return this.executeGetCart();
-        break;
       case 'CLEAR_CART':
         return this.executeClearCart();
-        break;
     }
   }
 
@@ -48,11 +44,7 @@ class Action {
             'Content-Type': 'application/json',
           },
         });
-        if (res.status >= 400 && res.status < 600) {
-          throw new Error(res.toString());
-        } else {
-          return resolve(res);
-        }
+        return resolve(res);
       } catch (e) {
         return reject(e);
       }
@@ -78,11 +70,7 @@ class Action {
             'Content-Type': 'application/json',
           },
         });
-        if (res.status >= 400 && res.status < 600) {
-          throw new Error(res.toString());
-        } else {
-          return resolve(res);
-        }
+        return resolve(res);
       } catch (e) {
         return reject(e);
       }

@@ -1,7 +1,7 @@
-import SmolCart from './utils/Smolcart';
+import * as SmolCart from './Smolcart';
 
-const init = (): SmolCart => {
-  return new SmolCart();
+const init = (): Record<string, unknown> => {
+  return SmolCart;
 };
 
 export { init };
